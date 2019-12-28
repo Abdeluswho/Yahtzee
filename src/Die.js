@@ -1,17 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Die.css";
 
- const Die = (props) => {
-    const {locked, handleClick, val} = props
-    return (
-      <button 
-        className={"Die"}
-        style={{ backgroundColor: locked ? "grey" : "black" }}
-        onClick={handleClick}
-      >
-        {val}
-      </button>
+ class Die extends Component  {
+
+    handleClickD = () => {
+        this.props.handleClick(this.props.idx)
+    }
+
+    render () {
+        return (
+            <button 
+                className={"Die"}
+                style={{ backgroundColor: this.props.locked ? "grey" : "black" }}
+                onClick={this.handleClickD}
+            >
+                {this.props.val}
+            </button>
     );
+    }
   }
 
 
